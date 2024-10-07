@@ -312,3 +312,783 @@ Example
   "content"
 }
 ```
+
+conversation.item.truncated
+Beta
+Returned when an earlier assistant audio message item is truncated by the client.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "conversation.item.truncated".
+
+item_id
+string
+
+The ID of the assistant message item that was truncated.
+
+content_index
+integer
+
+The index of the content part that was truncated.
+
+audio_end_ms
+integer
+
+The duration up to which the audio was truncated, in milliseconds.
+
+conversation.item.truncated
+{
+    "event_id": "event_2526",
+    "type": "conversation.item.truncated",
+    "item_id": "msg_004",
+    "content_index": 0,
+    "audio_end_ms": 1500
+}
+conversation.item.deleted
+Beta
+Returned when an item in the conversation is deleted.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "conversation.item.deleted".
+
+item_id
+string
+
+The ID of the item that was deleted.
+
+conversation.item.deleted
+{
+    "event_id": "event_2728",
+    "type": "conversation.item.deleted",
+    "item_id": "msg_005"
+}
+response.created
+Beta
+Returned when a new Response is created. The first event of response creation, where the response is in an initial state of "in_progress".
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.created".
+
+response
+object
+
+The response resource.
+
+
+Show properties
+response.created
+{
+    "event_id": "event_2930",
+    "type": "response.created",
+    "response": {
+        "id": "resp_001",
+        "object": "realtime.response",
+        "status": "in_progress",
+        "status_details": null,
+        "output": [],
+        "usage": null
+    }
+}
+response.done
+Beta
+Returned when a Response is done streaming. Always emitted, no matter the final state.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.done".
+
+response
+object
+
+The response resource.
+
+
+Show properties
+response.done
+{
+    "event_id": "event_3132",
+    "type": "response.done",
+    "response": {
+        "id": "resp_001",
+        "object": "realtime.response",
+        "status": "completed",
+        "status_details": null,
+        "output": [
+            {
+                "id": "msg_006",
+                "object": "realtime.item",
+                "type": "message",
+                "status": "completed",
+                "role": "assistant",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Sure, how can I assist you today?"
+                    }
+                ]
+            }
+        ],
+        "usage": {
+            "total_tokens": 50,
+            "input_tokens": 20,
+            "output_tokens": 30
+        }
+    }
+}
+response.output_item.added
+Beta
+Returned when a new Item is created during response generation.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.output_item.added".
+
+response_id
+string
+
+The ID of the response to which the item belongs.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+item
+object
+
+The item that was added.
+
+
+Show properties
+response.output_item.added
+{
+    "event_id": "event_3334",
+    "type": "response.output_item.added",
+    "response_id": "resp_001",
+    "output_index": 0,
+    "item": {
+        "id": "msg_007",
+        "object": "realtime.item",
+        "type": "message",
+        "status": "in_progress",
+        "role": "assistant",
+        "content": []
+    }
+}
+response.output_item.done
+Beta
+Returned when an Item is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.output_item.done".
+
+response_id
+string
+
+The ID of the response to which the item belongs.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+item
+object
+
+The completed item.
+
+
+Show properties
+response.output_item.done
+{
+    "event_id": "event_3536",
+    "type": "response.output_item.done",
+    "response_id": "resp_001",
+    "output_index": 0,
+    "item": {
+        "id": "msg_007",
+        "object": "realtime.item",
+        "type": "message",
+        "status": "completed",
+        "role": "assistant",
+        "content": [
+            {
+                "type": "text",
+                "text": "Sure, I can help with that."
+            }
+        ]
+    }
+}
+response.content_part.added
+Beta
+Returned when a new content part is added to an assistant message item during response generation.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.content_part.added".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item to which the content part was added.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+part
+object
+
+The content part that was added.
+
+
+Show properties
+response.content_part.added
+{
+    "event_id": "event_3738",
+    "type": "response.content_part.added",
+    "response_id": "resp_001",
+    "item_id": "msg_007",
+    "output_index": 0,
+    "content_index": 0,
+    "part": {
+        "type": "text",
+        "text": ""
+    }
+}
+response.content_part.done
+Beta
+Returned when a content part is done streaming in an assistant message item. Also emitted when a Response is interrupted, incomplete, or cancelled.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.content_part.done".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+part
+object
+
+The content part that is done.
+
+
+Show properties
+response.content_part.done
+{
+    "event_id": "event_3940",
+    "type": "response.content_part.done",
+    "response_id": "resp_001",
+    "item_id": "msg_007",
+    "output_index": 0,
+    "content_index": 0,
+    "part": {
+        "type": "text",
+        "text": "Sure, I can help with that."
+    }
+}
+response.text.delta
+Beta
+Returned when the text value of a "text" content part is updated.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.text.delta".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+delta
+string
+
+The text delta.
+
+response.text.delta
+{
+    "event_id": "event_4142",
+    "type": "response.text.delta",
+    "response_id": "resp_001",
+    "item_id": "msg_007",
+    "output_index": 0,
+    "content_index": 0,
+    "delta": "Sure, I can h"
+}
+response.text.done
+Beta
+Returned when the text value of a "text" content part is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.text.done".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+text
+string
+
+The final text content.
+
+response.text.done
+{
+    "event_id": "event_4344",
+    "type": "response.text.done",
+    "response_id": "resp_001",
+    "item_id": "msg_007",
+    "output_index": 0,
+    "content_index": 0,
+    "text": "Sure, I can help with that."
+}
+response.audio_transcript.delta
+Beta
+Returned when the model-generated transcription of audio output is updated.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.audio_transcript.delta".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+delta
+string
+
+The transcript delta.
+
+response.audio_transcript.delta
+{
+    "event_id": "event_4546",
+    "type": "response.audio_transcript.delta",
+    "response_id": "resp_001",
+    "item_id": "msg_008",
+    "output_index": 0,
+    "content_index": 0,
+    "delta": "Hello, how can I a"
+}
+response.audio_transcript.done
+Beta
+Returned when the model-generated transcription of audio output is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.audio_transcript.done".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+transcript
+string
+
+The final transcript of the audio.
+
+response.audio_transcript.done
+{
+    "event_id": "event_4748",
+    "type": "response.audio_transcript.done",
+    "response_id": "resp_001",
+    "item_id": "msg_008",
+    "output_index": 0,
+    "content_index": 0,
+    "transcript": "Hello, how can I assist you today?"
+}
+response.audio.delta
+Beta
+Returned when the model-generated audio is updated.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.audio.delta".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+delta
+string
+
+Base64-encoded audio data delta.
+
+response.audio.delta
+{
+    "event_id": "event_4950",
+    "type": "response.audio.delta",
+    "response_id": "resp_001",
+    "item_id": "msg_008",
+    "output_index": 0,
+    "content_index": 0,
+    "delta": "Base64EncodedAudioDelta"
+}
+response.audio.done
+Beta
+Returned when the model-generated audio is done. Also emitted when a Response is interrupted, incomplete, or cancelled.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.audio.done".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+content_index
+integer
+
+The index of the content part in the item's content array.
+
+response.audio.done
+{
+    "event_id": "event_5152",
+    "type": "response.audio.done",
+    "response_id": "resp_001",
+    "item_id": "msg_008",
+    "output_index": 0,
+    "content_index": 0
+}
+response.function_call_arguments.delta
+Beta
+Returned when the model-generated function call arguments are updated.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.function_call_arguments.delta".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the function call item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+call_id
+string
+
+The ID of the function call.
+
+delta
+string
+
+The arguments delta as a JSON string.
+
+response.function_call_arguments.delta
+{
+    "event_id": "event_5354",
+    "type": "response.function_call_arguments.delta",
+    "response_id": "resp_002",
+    "item_id": "fc_001",
+    "output_index": 0,
+    "call_id": "call_001",
+    "delta": "{\"location\": \"San\""
+}
+response.function_call_arguments.done
+Beta
+Returned when the model-generated function call arguments are done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "response.function_call_arguments.done".
+
+response_id
+string
+
+The ID of the response.
+
+item_id
+string
+
+The ID of the function call item.
+
+output_index
+integer
+
+The index of the output item in the response.
+
+call_id
+string
+
+The ID of the function call.
+
+arguments
+string
+
+The final arguments as a JSON string.
+
+response.function_call_arguments.done
+{
+    "event_id": "event_5556",
+    "type": "response.function_call_arguments.done",
+    "response_id": "resp_002",
+    "item_id": "fc_001",
+    "output_index": 0,
+    "call_id": "call_001",
+    "arguments": "{\"location\": \"San Francisco\"}"
+}
+rate_limits.updated
+Beta
+Emitted after every "response.done" event to indicate the updated rate limits.
+
+event_id
+string
+
+The unique ID of the server event.
+
+type
+string
+
+The event type, must be "rate_limits.updated".
+
+rate_limits
+array
+
+List of rate limit information.
+
+
+Show properties
+rate_limits.updated
+{
+    "event_id": "event_5758",
+    "type": "rate_limits.updated",
+    "rate_limits": [
+        {
+            "name": "requests",
+            "limit": 1000,
+            "remaining": 999,
+            "reset_seconds": 60
+        },
+        {
+            "name": "tokens",
+            "limit": 50000,
+            "remaining": 49950,
+            "reset_seconds": 60
+        }
+    ]
+}
