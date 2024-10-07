@@ -35,7 +35,7 @@ Returned when an error occurs.
     "event_id": "event_567"
   }
 }
-
+```
 session.created
 
 Beta
@@ -49,7 +49,7 @@ The event type, must be "session.created".
 The session resource.
 
 Example
-
+```json
 {
   "event_id": "event_1234",
   "type": "session.created",
@@ -75,7 +75,7 @@ Example
     "max_output_tokens": null
   }
 }
-
+```
 session.updated
 
 Beta
@@ -89,7 +89,7 @@ The event type, must be "session.updated".
 The updated session resource.
 
 Example
-
+```json
 {
   "event_id": "event_5678",
   "type": "session.updated",
@@ -115,7 +115,7 @@ Example
     "max_output_tokens": 200
   }
 }
-
+```
 conversation.created
 
 Beta
@@ -129,7 +129,7 @@ The event type, must be "conversation.created".
 The conversation resource.
 
 Example
-
+```json
 {
   "event_id": "event_9101",
   "type": "conversation.created",
@@ -138,7 +138,7 @@ Example
     "object": "realtime.conversation"
   }
 }
-
+```
 input_audio_buffer.committed
 
 Beta
@@ -154,14 +154,14 @@ The ID of the preceding item after which the new item will be inserted.
 The ID of the user message item that will be created.
 
 Example
-
+```json
 {
   "event_id": "event_1121",
   "type": "input_audio_buffer.committed",
   "previous_item_id": "msg_001",
   "item_id": "msg_002"
 }
-
+```
 input_audio_buffer.cleared
 
 Beta
@@ -173,12 +173,12 @@ The unique ID of the server event.
 The event type, must be "input_audio_buffer.cleared".
 
 Example
-
+```json
 {
   "event_id": "event_1314",
   "type": "input_audio_buffer.cleared"
 }
-
+```
 input_audio_buffer.speech_started
 
 Beta
@@ -194,14 +194,14 @@ Milliseconds since the session started when speech was detected.
 The ID of the user message item that will be created when speech stops.
 
 Example
-
+```json
 {
   "event_id": "event_1516",
   "type": "input_audio_buffer.speech_started",
   "audio_start_ms": 1000,
   "item_id": "msg_003"
 }
-
+```
 input_audio_buffer.speech_stopped
 
 Beta
@@ -217,13 +217,14 @@ Milliseconds since the session started when speech stopped.
 The ID of the user message item that will be created.
 
 Example
-
+```json
 {
   "event_id": "event_1718",
   "type": "input_audio_buffer.speech_stopped",
   "audio_end_ms": 2000,
   "item_id": "msg_003"
 }
+```
 
 conversation.item.created
 
@@ -240,7 +241,7 @@ The ID of the preceding item.
 The item that was created.
 
 Example
-
+```json
 {
   "event_id": "event_1920",
   "type": "conversation.item.created",
@@ -259,7 +260,7 @@ Example
     ]
   }
 }
-
+```
 conversation.item.input_audio_transcription.completed
 
 Beta
@@ -277,7 +278,7 @@ The index of the content part containing the audio.
 The transcribed text.
 
 Example
-
+```json
 {
   "event_id": "event_2122",
   "type": "conversation.item.input_audio_transcription.completed",
@@ -285,7 +286,7 @@ Example
   "content_index": 0,
   "transcript": "Hello, how are you?"
 }
-
+```
 conversation.item.input_audio_transcription.failed
 
 Beta
@@ -303,10 +304,11 @@ The index of the content part containing the audio.
 Details of the transcription error.
 
 Example
-
+```json
 {
   "event_id": "event_2324",
   "type": "conversation.item.input_audio_transcription.failed",
   "item_id": "msg_003",
   "content
 }
+```
