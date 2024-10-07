@@ -522,7 +522,8 @@ response.output_item.added
         "content": []
     }
 }
-```json
+```
+
 response.output_item.done
 Beta
 Returned when an Item is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
