@@ -77,12 +77,13 @@ The event type, must be "input_audio_buffer.append".
 Base64-encoded audio bytes.
 
 Example:
-
+```json
 {
     "event_id": "event_456",
     "type": "input_audio_buffer.append",
     "audio": "Base64EncodedAudioData"
 }
+```
 
 input_audio_buffer.commit (Beta)
 
@@ -96,11 +97,12 @@ Optional client-generated ID used to identify this event.
 The event type, must be "input_audio_buffer.commit".
 
 Example:
-
+```json
 {
     "event_id": "event_789",
     "type": "input_audio_buffer.commit"
 }
+```
 
 input_audio_buffer.clear (Beta)
 
@@ -114,12 +116,12 @@ Optional client-generated ID used to identify this event.
 The event type, must be "input_audio_buffer.clear".
 
 Example:
-
+```json
 {
     "event_id": "event_012",
     "type": "input_audio_buffer.clear"
 }
-
+```
 conversation.item.create (Beta)
 
 Send this event when adding an item to the conversation.
@@ -136,7 +138,7 @@ The ID of the preceding item after which the new item will be inserted.
 The item to add to the conversation.
 
 Example:
-
+```json
 {
     "event_id": "event_345",
     "type": "conversation.item.create",
@@ -154,6 +156,7 @@ Example:
         ]
     }
 }
+```
 
 conversation.item.truncate (Beta)
 
@@ -173,7 +176,7 @@ The index of the content part to truncate.
 Inclusive duration up to which audio is truncated, in milliseconds.
 
 Example:
-
+```json
 {
     "event_id": "event_678",
     "type": "conversation.item.truncate",
@@ -181,6 +184,7 @@ Example:
     "content_index": 0,
     "audio_end_ms": 1500
 }
+```
 
 conversation.item.delete (Beta)
 
@@ -217,7 +221,7 @@ The event type, must be "response.create".
 Configuration for the response.
 
 Example:
-
+```json
 {
     "event_id": "event_234",
     "type": "response.create",
@@ -246,6 +250,7 @@ Example:
         "max_output_tokens": 150
     }
 }
+```
 
 response.cancel (Beta)
 
@@ -257,3 +262,10 @@ Properties:
 Optional client-generated ID used to identify this event.
 	•	type: string
 The event type, must be "response.cancel".
+
+```json
+{
+    "event_id": "event_567",
+    "type": "response.cancel"
+}
+```
