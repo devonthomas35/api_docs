@@ -306,10 +306,16 @@ Details of the transcription error.
 Example
 ```json
 {
-  "event_id": "event_2324",
-  "type": "conversation.item.input_audio_transcription.failed",
-  "item_id": "msg_003",
-  "content"
+    "event_id": "event_2324",
+    "type": "conversation.item.input_audio_transcription.failed",
+    "item_id": "msg_003",
+    "content_index": 0,
+    "error": {
+        "type": "transcription_error",
+        "code": "audio_unintelligible",
+        "message": "The audio could not be transcribed.",
+        "param": null
+    }
 }
 ```
 
