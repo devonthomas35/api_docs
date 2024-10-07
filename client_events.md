@@ -62,7 +62,7 @@ Send this event to update the session’s default configuration.
         "max_output_tokens": null
     }
 }
-
+```
 input_audio_buffer.append (Beta)
 
 Send this event to append audio bytes to the input audio buffer.
