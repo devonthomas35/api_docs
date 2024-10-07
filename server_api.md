@@ -349,6 +349,7 @@ integer
 The duration up to which the audio was truncated, in milliseconds.
 
 conversation.item.truncated
+```json
 {
     "event_id": "event_2526",
     "type": "conversation.item.truncated",
@@ -356,6 +357,7 @@ conversation.item.truncated
     "content_index": 0,
     "audio_end_ms": 1500
 }
+```
 conversation.item.deleted
 Beta
 Returned when an item in the conversation is deleted.
@@ -376,11 +378,13 @@ string
 The ID of the item that was deleted.
 
 conversation.item.deleted
+```json
 {
     "event_id": "event_2728",
     "type": "conversation.item.deleted",
     "item_id": "msg_005"
 }
+```
 response.created
 Beta
 Returned when a new Response is created. The first event of response creation, where the response is in an initial state of "in_progress".
@@ -403,6 +407,7 @@ The response resource.
 
 Show properties
 response.created
+```json
 {
     "event_id": "event_2930",
     "type": "response.created",
@@ -415,6 +420,7 @@ response.created
         "usage": null
     }
 }
+```
 response.done
 Beta
 Returned when a Response is done streaming. Always emitted, no matter the final state.
@@ -437,6 +443,7 @@ The response resource.
 
 Show properties
 response.done
+```json
 {
     "event_id": "event_3132",
     "type": "response.done",
@@ -467,6 +474,7 @@ response.done
         }
     }
 }
+```
 response.output_item.added
 Beta
 Returned when a new Item is created during response generation.
@@ -499,6 +507,7 @@ The item that was added.
 
 Show properties
 response.output_item.added
+```json
 {
     "event_id": "event_3334",
     "type": "response.output_item.added",
@@ -513,6 +522,7 @@ response.output_item.added
         "content": []
     }
 }
+```json
 response.output_item.done
 Beta
 Returned when an Item is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
@@ -545,6 +555,7 @@ The completed item.
 
 Show properties
 response.output_item.done
+```json
 {
     "event_id": "event_3536",
     "type": "response.output_item.done",
@@ -564,6 +575,7 @@ response.output_item.done
         ]
     }
 }
+```
 response.content_part.added
 Beta
 Returned when a new content part is added to an assistant message item during response generation.
@@ -606,6 +618,7 @@ The content part that was added.
 
 Show properties
 response.content_part.added
+```json
 {
     "event_id": "event_3738",
     "type": "response.content_part.added",
@@ -618,6 +631,7 @@ response.content_part.added
         "text": ""
     }
 }
+```
 response.content_part.done
 Beta
 Returned when a content part is done streaming in an assistant message item. Also emitted when a Response is interrupted, incomplete, or cancelled.
@@ -660,6 +674,7 @@ The content part that is done.
 
 Show properties
 response.content_part.done
+```json
 {
     "event_id": "event_3940",
     "type": "response.content_part.done",
@@ -672,6 +687,7 @@ response.content_part.done
         "text": "Sure, I can help with that."
     }
 }
+```
 response.text.delta
 Beta
 Returned when the text value of a "text" content part is updated.
@@ -712,6 +728,7 @@ string
 The text delta.
 
 response.text.delta
+```json
 {
     "event_id": "event_4142",
     "type": "response.text.delta",
@@ -721,6 +738,7 @@ response.text.delta
     "content_index": 0,
     "delta": "Sure, I can h"
 }
+```
 response.text.done
 Beta
 Returned when the text value of a "text" content part is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
@@ -761,6 +779,7 @@ string
 The final text content.
 
 response.text.done
+```json
 {
     "event_id": "event_4344",
     "type": "response.text.done",
@@ -770,6 +789,7 @@ response.text.done
     "content_index": 0,
     "text": "Sure, I can help with that."
 }
+```
 response.audio_transcript.delta
 Beta
 Returned when the model-generated transcription of audio output is updated.
@@ -810,6 +830,7 @@ string
 The transcript delta.
 
 response.audio_transcript.delta
+```json
 {
     "event_id": "event_4546",
     "type": "response.audio_transcript.delta",
@@ -819,6 +840,7 @@ response.audio_transcript.delta
     "content_index": 0,
     "delta": "Hello, how can I a"
 }
+```
 response.audio_transcript.done
 Beta
 Returned when the model-generated transcription of audio output is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
@@ -859,6 +881,7 @@ string
 The final transcript of the audio.
 
 response.audio_transcript.done
+```json
 {
     "event_id": "event_4748",
     "type": "response.audio_transcript.done",
@@ -868,6 +891,7 @@ response.audio_transcript.done
     "content_index": 0,
     "transcript": "Hello, how can I assist you today?"
 }
+```
 response.audio.delta
 Beta
 Returned when the model-generated audio is updated.
@@ -908,6 +932,7 @@ string
 Base64-encoded audio data delta.
 
 response.audio.delta
+```json
 {
     "event_id": "event_4950",
     "type": "response.audio.delta",
@@ -917,6 +942,7 @@ response.audio.delta
     "content_index": 0,
     "delta": "Base64EncodedAudioDelta"
 }
+```
 response.audio.done
 Beta
 Returned when the model-generated audio is done. Also emitted when a Response is interrupted, incomplete, or cancelled.
@@ -952,6 +978,7 @@ integer
 The index of the content part in the item's content array.
 
 response.audio.done
+```json
 {
     "event_id": "event_5152",
     "type": "response.audio.done",
@@ -960,6 +987,7 @@ response.audio.done
     "output_index": 0,
     "content_index": 0
 }
+```
 response.function_call_arguments.delta
 Beta
 Returned when the model-generated function call arguments are updated.
@@ -1000,6 +1028,7 @@ string
 The arguments delta as a JSON string.
 
 response.function_call_arguments.delta
+```json
 {
     "event_id": "event_5354",
     "type": "response.function_call_arguments.delta",
@@ -1009,6 +1038,7 @@ response.function_call_arguments.delta
     "call_id": "call_001",
     "delta": "{\"location\": \"San\""
 }
+```
 response.function_call_arguments.done
 Beta
 Returned when the model-generated function call arguments are done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
@@ -1049,6 +1079,7 @@ string
 The final arguments as a JSON string.
 
 response.function_call_arguments.done
+```json
 {
     "event_id": "event_5556",
     "type": "response.function_call_arguments.done",
@@ -1058,6 +1089,7 @@ response.function_call_arguments.done
     "call_id": "call_001",
     "arguments": "{\"location\": \"San Francisco\"}"
 }
+```
 rate_limits.updated
 Beta
 Emitted after every "response.done" event to indicate the updated rate limits.
@@ -1080,6 +1112,7 @@ List of rate limit information.
 
 Show properties
 rate_limits.updated
+```json
 {
     "event_id": "event_5758",
     "type": "rate_limits.updated",
@@ -1098,3 +1131,4 @@ rate_limits.updated
         }
     ]
 }
+```
