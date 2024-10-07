@@ -309,6 +309,6 @@ Example
   "event_id": "event_2324",
   "type": "conversation.item.input_audio_transcription.failed",
   "item_id": "msg_003",
-  "content
+  "content"
 }
 ```
